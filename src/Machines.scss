@@ -1,0 +1,37 @@
+#machines-view {
+  table {
+    width: 775px;
+    margin: auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+    thead {
+      tr {
+        th {
+          text-align: left;
+          padding-bottom: 10px;
+          &:first-child {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background: lightgray;
+        }
+        td.machine-tdata {
+          padding: 10px;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+          &:first-child {
+            border-left: 1px solid black;
+          }
+          &:last-child {
+            border-right: 1px solid black;
+          }
+        }
+      }
+    }
+  }
+}
