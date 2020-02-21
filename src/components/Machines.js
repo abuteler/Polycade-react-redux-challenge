@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
-import { getMachines } from './actions/machines.actions';
+import { getMachines } from '../actions/machines.actions';
+import Health from './Health';
 import './Machines.scss';
 
 class Machines extends React.Component {
@@ -13,9 +14,9 @@ class Machines extends React.Component {
 
 	render () {
 		const { machines } = this.props;
-		console.log(machines);
+
 		return (
-			<div id="machines-view">
+			<div id="machines-component">
 				<table>
 					<thead>
 						<tr>
@@ -29,7 +30,7 @@ class Machines extends React.Component {
 							machines.map((machine, key) => (<tr key={key}>
 								<td className="machine-tdata">{machine.name}</td>
 								<td className="machine-tdata">{machine.ip_address}</td>
-								<td className="machine-tdata">{machine.health}</td>
+								<td width="40%" className="machine-tdata"><Health showTitle={false} health={machine.health} /></td>
 							</tr>)
 							)}
 					</tbody>

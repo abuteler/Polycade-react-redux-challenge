@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import Machines from './Machines';
+import Machines from './components/Machines';
 import './App.scss';
 
 function App () {

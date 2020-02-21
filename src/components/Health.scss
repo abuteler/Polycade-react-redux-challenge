@@ -1,0 +1,11 @@
+#health-component {
+  h1 {
+    margin: 0;
+  }
+  .health-container {
+    border: 1px solid black;
+    .current-health {
+      background-color: gray;
+    }
+  }
+}
