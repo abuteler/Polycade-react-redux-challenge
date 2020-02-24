@@ -1,4 +1,4 @@
-import { SET_MACHINES_LOADING, GET_MACHINES, GET_MACHINE_DETAILS } from '../actions/types';
+import { SET_MACHINES_LOADING, GET_MACHINES, GET_MACHINE_DETAILS, UPDATE_MACHINE_DETAILS } from '../actions/types';
 import { List } from 'immutable';
 
 // eslint-disable-next-line
@@ -27,6 +27,12 @@ export default function machines (state = initialState, action) {
 			return {
 				...state,
 				selectedMachine: action.payload,
+				loading: false
+			};
+		case UPDATE_MACHINE_DETAILS:
+			console.log(action);
+			return {
+				...state,
 				loading: false
 			};
 		default:

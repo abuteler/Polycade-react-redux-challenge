@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SET_MACHINES_LOADING, GET_MACHINES, GET_MACHINE_DETAILS } from './types';
+import { SET_MACHINES_LOADING, GET_MACHINES, GET_MACHINE_DETAILS, UPDATE_MACHINE_DETAILS } from './types';
 
 const baseUrl = 'http://localhost:8080';
 
@@ -23,6 +23,16 @@ export const getMachineById = (id) => dispatch => {
 		.get(`${baseUrl}/machines/${id}`)
 		.then(res=> dispatch({
 			type: GET_MACHINE_DETAILS,
+			payload: res.data
+		}));
+};
+
+export const updateMachineById = (id, newName) => dispatch => {
+	dispatch(setMachinesLoading());
+	axios
+		.put(`${baseUrl}/machines/${id}`, { name: newName })
+		.then(res=> dispatch({
+			type: UPDATE_MACHINE_DETAILS,
 			payload: res.data
 		}));
 };
