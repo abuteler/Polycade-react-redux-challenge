@@ -22,12 +22,22 @@ class MachineDetails extends React.Component {
 		return (
 			<div className="machine-details-component">
 				<div className="left-col">
-					<h1>{machine.name}</h1>
-					<h2>Update Device</h2>
-					...
+					<h2>{machine.name}</h2>
+					<h3>Update Device</h3>
+					<div className="machine-update-form">
+						<label htmlFor="machine-name">Name:</label>
+						<input type="text" name="machine-name" placeholder={machine.name} />
+						<div className="submit-container">
+							<input type="submit" name="submit" />
+						</div>
+					</div>
 				</div>
 				<div className="right-col">
 					<Health showTitle={true} health={machine.health || 1} />
+					<h3>Stats</h3>
+					<div>
+						IP Address: {machine.ip_address}
+					</div>
 				</div>
 			</div>
 		);

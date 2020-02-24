@@ -1,9 +1,17 @@
 div.health-component {
+  &.with-bg {
+    background-color: lightgray;
+    padding: 0 25px 25px 25px;
+    border: 1px solid black;
+  }
   h1 {
     margin: 0;
+    text-align: center;
+    color: #444;
   }
   .health-container {
     border: 1px solid black;
+    background-color: white;
     .current-health {
       background-color: gray;
     }

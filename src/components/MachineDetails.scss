@@ -1,11 +1,55 @@
 div.machine-details-component {
-  width: 775px;
+  width: 750px;
   margin: auto;
   display: flex;
+  color: #444;
+  h2 {
+    margin: 0;
+    line-height: 1;
+  }
+  h3 {
+    margin-bottom: 10px;
+  }
+  .left-col, .right-col {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
   .left-col {
     width: 400px;
+    padding-left: 10px;
+    .machine-update-form {
+      label, input {
+        font-size: 1.2rem;
+      }
+      input {
+        margin-top: 10px;
+        &[type=text] {
+          width: 98%;
+          padding-left: 3px;
+        }
+        &[type=submit] {
+          color: white;
+          background-color: #aaa;
+          border: 1px solid black;
+          text-transform: uppercase;
+          padding: 3px 36px;
+          font-size: .9rem;
+          margin-top: 15px;
+          margin-left: auto;
+        }
+      }
+      .submit-container {
+        display: inline-flex;
+        width: 100%;
+      }
+    }
   }
   .right-col {
     width: 375px;
+    padding-right: 10px;
+    h3 {
+      margin-top: 10px;
+    }
   }
 }
