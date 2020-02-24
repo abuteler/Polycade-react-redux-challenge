@@ -25,7 +25,7 @@ class Health extends React.Component {
 		const { containerWidth } = this.state;
 
 		return (
-			<div id="health-component">
+			<div className="health-component">
 				{ showTitle && (<h1>{health}</h1>) }
 				<div className="health-container" ref={el => (this.healthContainer = el)}>
 					<div style={{ width: Math.round(health*containerWidth/100) }} className="current-health">&nbsp;</div>

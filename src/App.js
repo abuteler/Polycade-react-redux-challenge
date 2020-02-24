@@ -8,6 +8,7 @@ import {
 import { Provider } from 'react-redux';
 import store from './store';
 import Machines from './components/Machines';
+import MachineDetails from './components/MachineDetails';
 import './App.scss';
 
 function App () {
@@ -25,8 +26,11 @@ function App () {
 					</nav>
 
 					<Switch>
-						<Route path='/machines'>
+						<Route exact path='/machines'>
 							<Machines />
+						</Route>
+						<Route path='/machines/:id'>
+							<MachineDetails />
 						</Route>
 					</Switch>
 				</div>

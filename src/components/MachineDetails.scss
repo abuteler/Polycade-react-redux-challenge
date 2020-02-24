@@ -1,0 +1,11 @@
+div.machine-details-component {
+  width: 775px;
+  margin: auto;
+  display: flex;
+  .left-col {
+    width: 400px;
+  }
+  .right-col {
+    width: 375px;
+  }
+}
