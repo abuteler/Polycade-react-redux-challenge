@@ -6,11 +6,11 @@ const list = List();
 
 const initialState = {
 	loading: false,
-	list,
+	list: list,
 	selectedMachine: {}
 };
 
-export default function machines (state = initialState, action) {
+export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_MACHINES_LOADING:
 			return {
@@ -20,7 +20,7 @@ export default function machines (state = initialState, action) {
 		case GET_MACHINES:
 			return {
 				...state,
-				list: state.list.push(...action.payload),
+				list: list.push(...action.payload),
 				loading: false
 			};
 		case GET_MACHINE_DETAILS:
@@ -30,9 +30,9 @@ export default function machines (state = initialState, action) {
 				loading: false
 			};
 		case UPDATE_MACHINE_DETAILS:
-			console.log(action);
 			return {
 				...state,
+				selectedMachine: action.payload,
 				loading: false
 			};
 		default:

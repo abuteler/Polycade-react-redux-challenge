@@ -7,17 +7,17 @@ import { getMachineById, updateMachineById } from '../actions/machines.actions';
 import Health from './Health';
 import './MachineDetails.scss';
 
-const id = window.location.pathname.substr(10);
-
 class MachineDetails extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			newName: null
+			id: window.location.pathname.substr(10),
+			newName: ''
 		};
 	}
 
 	componentDidMount () {
+		const { id } = this.state;
 		this.props.getMachineById(id);
 	}
 
@@ -27,14 +27,16 @@ class MachineDetails extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		const { newName } = this.state;
+		const { id, newName } = this.state;
 		if (newName !== null) {
 			this.props.updateMachineById(id, newName);
+			this.setState({ newName: '' });
 		}
 	};
 
 	render () {
-		const { machine, newName } = this.props;
+		const { machine } = this.props;
+		const { id, newName } = this.state;
 
 		return (
 			<div className="machine-details-component">
@@ -50,7 +52,7 @@ class MachineDetails extends React.Component {
 					</form>
 				</div>
 				<div className="right-col">
-					<Health showTitle={true} health={machine.health || 1} />
+					<Health showTitle={true} id={id} machine={machine} />
 					<h3>Stats</h3>
 					<div>
 						IP Address: {machine.ip_address}
@@ -64,8 +66,7 @@ class MachineDetails extends React.Component {
 MachineDetails.propTypes = {
 	getMachineById: PropTypes.func.isRequired,
 	updateMachineById: PropTypes.func.isRequired,
-	machine: PropTypes.object.isRequired,
-	newName: PropTypes.string
+	machine: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -6,12 +6,13 @@ import {
 	Link
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import { PropTypes } from 'prop-types';
+
 import Machines from './components/Machines';
 import MachineDetails from './components/MachineDetails';
 import './App.scss';
 
-function App () {
+function App ({ store }) {
 	return (
 		<Provider store={store}>
 			<Router>
@@ -38,5 +39,8 @@ function App () {
 		</Provider>
 	);
 }
+App.propTypes = {
+	store: PropTypes.object.isRequired
+};
 
 export default App;

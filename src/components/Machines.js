@@ -14,7 +14,7 @@ class Machines extends React.Component {
 	}
 
 	render () {
-		const { list } = this.props;
+		const { machines } = this.props;
 
 		return (
 			<div id="machines-component">
@@ -28,10 +28,10 @@ class Machines extends React.Component {
 					</thead>
 					<tbody>
 						{
-							list.map((machine, key) => (<tr key={key}>
+							machines.map((machine, key) => (<tr key={key}>
 								<td className="machine-tdata"><Link to={`/machines/${machine.id}`}>{machine.name}</Link></td>
 								<td className="machine-tdata">{machine.ip_address}</td>
-								<td width="40%" className="machine-tdata"><Health showTitle={false} health={machine.health} /></td>
+								<td width="40%" className="machine-tdata"><Health showTitle={false} id={machine.id} /></td>
 							</tr>)
 							)}
 					</tbody>
@@ -42,10 +42,10 @@ class Machines extends React.Component {
 }
 Machines.propTypes = {
 	getMachines: PropTypes.func.isRequired,
-	list: PropTypes.object.isRequired
+	machines: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	list: state.machines.list
+	machines: state.machines.list
 });
 export default connect(mapStateToProps, { getMachines })(Machines);

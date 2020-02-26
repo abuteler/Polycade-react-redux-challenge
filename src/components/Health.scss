@@ -12,8 +12,14 @@ div.health-component {
   .health-container {
     border: 1px solid black;
     background-color: white;
-    .current-health {
-      background-color: gray;
+    .healthy {
+      background-color: #5cb85c;
+    }
+    .mid-range {
+      background-color: #f0ad4e;
+    }
+    .low-health {
+      background-color: #f05040;
     }
   }
 }
