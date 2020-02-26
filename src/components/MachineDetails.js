@@ -28,7 +28,7 @@ class MachineDetails extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const { id, newName } = this.state;
-		if (newName !== null) {
+		if (newName !== '') {
 			this.props.updateMachineById(id, newName);
 			this.setState({ newName: '' });
 		}
