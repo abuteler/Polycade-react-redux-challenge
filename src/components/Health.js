@@ -73,8 +73,8 @@ export class Health extends React.Component {
 		const health = this.getMachineHealth();
 
 		return (
-			<div className={showTitle ? 'health-component with-bg' : 'health-component'}>
-				{ showTitle && (<h1>{health}</h1>) }
+			<div className={showTitle ? 'health-component with-bg' : 'health-component'} data-testid="health-component">
+				{ showTitle && (<h1 data-testid="health-component-title">{health}</h1>) }
 				<div className="health-container" ref={el => (this.healthContainer = el)}>
 					<div style={{ width: Math.round(health*containerWidth/100) }} className={health > 70 ? 'healthy' : health > 50 ? 'mid-range' : 'low-health'}>&nbsp;</div>
 				</div>
