@@ -6,7 +6,7 @@ import { getMachineById } from '../actions/machines.actions';
 import { WEBSOCKET_URL } from '../constants';
 import './Health.scss';
 
-class Health extends React.Component {
+export class Health extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {

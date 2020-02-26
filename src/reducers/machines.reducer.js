@@ -4,7 +4,7 @@ import { List } from 'immutable';
 // eslint-disable-next-line
 const list = List();
 
-const initialState = {
+export const initialState = {
 	loading: false,
 	list: list,
 	selectedMachine: {}

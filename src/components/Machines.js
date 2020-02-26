@@ -7,7 +7,7 @@ import { getMachines } from '../actions/machines.actions';
 import Health from './Health';
 import './Machines.scss';
 
-class Machines extends React.Component {
+export class Machines extends React.Component {
 
 	componentDidMount () {
 		this.props.getMachines();
