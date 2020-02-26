@@ -15,7 +15,7 @@ const machinesMock = [
   {"id":"99ade105-dee1-49eb-8ac4-e4d272f89fba","name":"Machine 1","ip_address":"127.0.0.31","health":64},
   {"id":"4111947a-6c58-4977-90fa-2caaaef88648","name":"Machine 2","ip_address":"127.0.0.4","health":62}
 ];
-const machinesList = List();
+let machinesList = List();
 
 describe('Health Component', () => {
 
@@ -41,9 +41,9 @@ describe('Health Component', () => {
   
   test('component should not get machine details if in machines view', () => {
     const getMachineByIdMockFn = jest.fn();
-    machinesList.push(machinesMock)
+    machinesList = List(machinesMock);
     const { getByTestId } = render(<Health getMachineById={getMachineByIdMockFn} id={machine.id} machines={machinesList} machine={machine} />);
-    expect(getMachineByIdMockFn.mock.calls.length).toBe(1)
+    expect(getMachineByIdMockFn.mock.calls.length).toBe(0)
   });
 
 });
